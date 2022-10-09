@@ -6,16 +6,17 @@ import * as Speech from 'expo-speech';
 export default function App() {
 
   const [text, setText] = useState('');
+
   const speak = () => {
-    Speech.speak(text);
+    const thingToSay = text;
+    Speech.speak(thingToSay);
   };
 
   return (
     <View style={styles.container}>
-      <TextInput placeholder='...type something' style={{ marginTop: 5, marginBottom: 5,  fontSize:18, width: 200, borderColor: 'gray', borderWidth: 1}}
-      onChangeText={(text) => setText(text)}
-      
-        />
+      <TextInput placeholder='...type something' style={{ marginTop: 5, marginBottom: 5,  fontSize:12, width: 200, borderColor: 'gray', borderWidth: 1}}
+      onChangeText={text => setText(text)}
+      />
       <Button title="Press to hear text" onPress={speak} />
     </View>
   );
@@ -28,7 +29,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginTop: 60,
   },
-  
-  
+ 
 });
 
